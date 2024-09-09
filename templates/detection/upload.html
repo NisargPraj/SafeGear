@@ -1,0 +1,36 @@
+{% extends "core/base.html" %}
+{% block title %}Upload | SafeGear{% endblock %}
+{% block head%}
+{{ super() }}
+{% endblock %}
+{% block content %}
+{% include "core/navbar.html" %}
+&nbsp;&nbsp;&nbsp;
+<div class="container">
+    <div class="row justify-content-center align-items-center">
+        <div class="col-md-5">
+            <div class="row justify-content-center mt-5">
+                <h1>Video Detection</h1>
+            </div>
+            <br>
+            <div class="card">
+                <div class="card-header">
+                    Upload Video
+                </div>
+                <div class="card-body">
+                    <form action="/detect" method="post" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <label>Upload:</label>
+                            <input type="file" class="form-control-file" id="media" name="media" accept="video/*" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Detect</button>
+                    </form>
+                </div>
+                <div class="card-footer text-muted">
+                    <a class="text-primary" href="/view_detection_table">View Detections</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

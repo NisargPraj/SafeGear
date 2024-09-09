@@ -1,0 +1,24 @@
+{% extends "core/base.html" %}
+{% block title %}Output | SafeGear{% endblock %}
+{% block head %}
+{{ super() }}
+{% endblock %}
+{% block content%}
+{% include "core/navbar.html" %}
+&nbsp;&nbsp;&nbsp;
+<div class="container mt-5 justify-content-center align-items-center">
+    <h1 class="text-center mb-4">Detection Video Output</h1>
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+          <p class="text-dark text-center">{{ video_name }}</p>
+        <div class="embed-responsive embed-responsive-16by9 border rounded-lg shadow">
+          <iframe class="embed-responsive-item" src="{{ url_for('static', filename='output/' + video) }}"></iframe>
+        </div>
+      </div>
+    </div>
+    <div class="text-muted text-center mt-5">
+        <a class="btn btn-outline-primary" href="/open_upload">Add Another</a>
+        <a class="btn btn-outline-primary" href="/view_detection_table">View Detections</a>
+    </div>
+</div>
+{% endblock %}

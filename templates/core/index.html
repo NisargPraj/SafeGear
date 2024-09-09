@@ -1,0 +1,47 @@
+{% extends "core/base.html" %}
+{% block title %}Home | SafeGear{% endblock %}
+{% block head %}
+{{ super() }}
+{% endblock %}
+{% block content %}
+{% include "core/navbar.html" %}
+&nbsp;&nbsp;&nbsp;
+<style>
+@import url("static/css/index.css");
+body {
+    background: url("{{ url_for('static', filename='img/construction_site.jpg') }}") no-repeat center center fixed;
+    background-size: cover;
+    position: relative;
+    z-index: 1;
+}
+</style>
+{#    <div class="container mt-5">#}
+{#        <div class="text text-center">#}
+{#            <h1 class="text-black text-monospace">Welcome to SafeGear-Safety Detection Project</h1>#}
+{#            <p>SafeGear focuses on enhancing#}
+{#                the safety of industrial workers by ensuring#}
+{#                they are equipped with essential protective gear—safety#}
+{#                helmets and safety vests. Users can upload videos of their#}
+{#                work environments, and our advanced AI model will automatically detect#}
+{#                and analyze the presence of this safety equipment.</p>#}
+{#            <a href="/open_upload" class="btn btn-primary">Get Started</a>#}
+{#        </div>#}
+{#    </div>#}
+
+<div class="info d-flex align-items-center mt-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-6 text-center">
+                <h2 class="">Welcome to SafeGear</h2>
+                <p>SafeGear focuses on enhancing
+                the safety of industrial workers by ensuring
+                they are equipped with essential protective gear—safety
+                helmets and safety vests. Users can upload videos of their
+                work environments, and our advanced AI model will automatically detect
+                and analyze the presence of this safety equipment.</p>
+                <a href="/open_upload" class="btn-get-started">Get Started</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,60 @@
+{% extends "core/base.html" %}
+{% block title %}Login | SafeGear{% endblock %}
+{% block head %}
+{{ super() }}
+{% endblock %}
+{#  <div class="container mt-5">#}
+{#    <h1>Login to SafeGear</h1>#}
+{#    <form action="/login" method="POST">#}
+{#        {% if error %}#}
+{#            <span style="color: red ">{{ error }}</span>#}
+{#        {% endif %}#}
+{#      <div class="form-group">#}
+{#        <label for="username">Username</label>#}
+{#        <input type="text" class="form-control" id="username" name="username" required>#}
+{#      </div>#}
+{#      <div class="form-group">#}
+{#        <label for="password">Password</label>#}
+{#        <input type="password" class="form-control" id="password" name="password" required>#}
+{#      </div>#}
+{#      <button type="submit" class="btn btn-primary">Login</button>#}
+{#    </form>#}
+{#    <p>Don't have an account? <a href="/open_register_page">Register here</a></p>#}
+{#  </div>#}
+{% block content %}
+<div class="container">
+    <div class="row justify-content-center align-items-center">
+        <div class="col-md-5">
+            <div class="row justify-content-center mt-5">
+                <h1 style="color: dodgerblue">SafeGear</h1>
+            </div>
+            <br>
+            <br>
+            <div class="card">
+                <div class="card-header">
+                    Login
+                </div>
+                <div class="card-body">
+                    {% if error %}
+                        <p style="color: red">{{ error }}</p>
+                    {% endif %}
+                    <form method="POST" action="/login">
+                        <div class="form-group">
+                            <label>Username</label>
+                            <input type="text" class="form-control" name="username" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Password</label>
+                            <input type="password" class="form-control" name="password" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Login</button>
+                    </form>
+                </div>
+                <div class="card-footer text-muted">
+                    <a href="/open_register_page">Register?</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,52 @@
+{% extends "core/base.html" %}
+{% block title %}Detections | SafeGear{% endblock %}
+{% block head %}
+{{ super() }}
+{% endblock %}
+{% block content %}
+{% include "core/navbar.html" %}
+&nbsp;&nbsp;&nbsp;
+    <div>
+        <p class="text-center text-dark text-wrap justify-content-center align-items-center mt-5" style="font-weight: bold; font-size: x-large">
+            Detection Table</p>
+    </div>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">File Name</th>
+                <th scope="col">Detection Stats</th>
+                <th scope="col" style="width: 150px">Detection Time</th>
+                <th scope="col">Input File Path</th>
+                <th scope="col">Output File Path</th>
+                <th scope="col">Created On</th>
+                <th scope="col">Modified On</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+    {% for i in data %}
+            <tr>
+                <td>{{ loop.index }}</td>
+                <td>{{ i["file_name"] }}</td>
+                <td>{{ i["detection_stats"] }}</td>
+                <td>{{ i["detection_datetime"] }}</td>
+                <td>{{ i["input_file_path"] }}</td>
+                <td>{{ i["output_file_path"] }}</td>
+                <td>{{ i["created_on"] }}</td>
+                <td>{{ i["modified_on"] }}</td>
+                <td>
+                    <a class="btn btn-outline-primary btn-sm"
+                            href="/view_video?video={{ i["output_file_path"][14::] }}&video_name={{ i["file_name"] }}">
+                        Video
+                    </a>
+                    <a class="btn btn-outline-danger btn-sm"
+                            href="/detection_delete?det_id={{ i["detection_id"] }}">
+                        Delete
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+    {% endfor %}
+    </table>
+{% endblock %}
