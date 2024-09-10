@@ -14,3 +14,7 @@
 - **Backend Framework:** Flask
 - **Database:** MySQL
 - **Programming Language:** Python
+
+## License
+
+This project is licensed under the [MIT License](./LICENSE).
